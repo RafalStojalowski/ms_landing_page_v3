@@ -1,0 +1,444 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>MoleculeSolver — From NMR spectrum to molecular structure</title>
+  <meta name="description" content="Upload an NMR spectrum, let AI models propose candidate structures, refine and verify them in an interactive workspace — together with your team. All computing runs on our side.">
+  <meta name="theme-color" content="#07050c">
+  <meta property="og:title" content="MoleculeSolver — From NMR spectrum to molecular structure">
+  <meta property="og:description" content="AI structure proposals, an interactive NMR workspace, live collaboration and a learning mode. All computing runs on our side.">
+  <meta property="og:image" content="assets/img/hero.webp">
+  <link rel="icon" href="assets/logo.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Montserrat:wght@500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<!-- ───────────────────────── NAV ───────────────────────── -->
+<header class="nav" id="nav">
+  <div class="container nav__inner">
+    <a class="nav__brand" href="#top" aria-label="MoleculeSolver home">
+      <img src="assets/logo.svg" alt="MoleculeSolver" width="150" height="30">
+    </a>
+    <nav class="nav__links" id="nav-links" aria-label="Main">
+      <a href="#how">How it works</a>
+      <a href="#workspace">Workspace</a>
+      <a href="#collaboration">Collaboration</a>
+      <a href="#learning">Learning</a>
+      <a href="#roadmap">Roadmap</a>
+      <a href="#team">Team</a>
+    </nav>
+    <a class="btn btn--primary btn--sm nav__cta" data-request-access href="#contact">Request access</a>
+    <button class="nav__toggle" id="nav-toggle" aria-label="Open menu" aria-expanded="false" aria-controls="nav-links">
+      <span></span><span></span>
+    </button>
+  </div>
+</header>
+
+<main id="top">
+
+  <!-- ───────────────────────── 1. HERO ───────────────────────── -->
+  <section class="hero">
+    <div class="hero__glow" aria-hidden="true"></div>
+    <div class="container hero__copy">
+      <p class="eyebrow" data-reveal>NMR structure elucidation platform</p>
+      <h1 class="hero__title" data-reveal style="--d:80ms">
+        From NMR spectrum<br>to <span class="grad-text">molecular structure.</span>
+      </h1>
+      <p class="hero__lead" data-reveal style="--d:160ms">
+        Upload a spectrum and let our AI models propose candidate structures. Refine them in an
+        interactive workspace, check the predicted ¹³C spectrum against your data, and do it together
+        with your team. All the computing runs on our side.
+      </p>
+      <div class="hero__actions" data-reveal style="--d:240ms">
+        <a class="btn btn--primary" data-request-access href="#contact">Request access</a>
+        <a class="btn btn--ghost" href="#how">See how it works</a>
+      </div>
+    </div>
+
+    <div class="container hero__stage" data-reveal style="--d:320ms">
+      <div class="hero__shot" id="hero-shot">
+        <figure class="frame frame--hero">
+          <div class="frame__bar" aria-hidden="true"><i></i><i></i><i></i><span>MoleculeSolver · workspace</span></div>
+          <div class="tour" data-tour='[{"t":0,"x":0.5,"y":0.5,"s":1},{"t":0.8,"x":0.31,"y":0.56,"s":1.55,"d":1.2},{"t":4.8,"x":0.78,"y":0.5,"s":1.45,"d":1.4},{"t":9.4,"x":0.47,"y":0.66,"s":1.5,"d":1.3},{"t":13.5,"x":0.27,"y":0.54,"s":2.2,"d":1.4},{"t":20.4,"x":0.5,"y":0.52,"s":1.1,"d":1.8},{"t":24,"x":0.5,"y":0.5,"s":1,"d":1.6}]'><video src="assets/video/refine.mp4" poster="assets/video/refine.jpg" width="1600" height="960" style="--ar:1600/960" muted playsinline preload="auto" aria-label="Recording: dragging a group tile, turning the 3D model and bonding a new OH group" data-zoom></video></div>
+        </figure>
+        <span class="chip chip--float chip--a"><i class="dot"></i>AI structure proposals</span>
+        <span class="chip chip--float chip--b"><i class="dot dot--m"></i>¹³C NMR prediction</span>
+        <span class="chip chip--float chip--c"><i class="dot dot--c"></i>Live collaboration</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ───────────────────────── 2. PROBLEM ───────────────────────── -->
+  <section class="section" id="problem">
+    <div class="container">
+      <header class="section__head" data-reveal>
+        <p class="eyebrow">The problem</p>
+        <h2>Structure elucidation shouldn’t be a bottleneck.</h2>
+      </header>
+      <div class="cards cards--4">
+        <article class="card" data-reveal style="--d:0ms">
+          <div class="card__icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>
+          </div>
+          <h3>Expert time is scarce</h3>
+          <p>Assigning signals by hand takes years of experience and hours of attention for every compound.</p>
+        </article>
+        <article class="card" data-reveal style="--d:90ms">
+          <div class="card__icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="7" rx="1.5"/><rect x="14" y="3" width="7" height="7" rx="1.5"/><rect x="3" y="14" width="7" height="7" rx="1.5"/><path d="M17.5 14v7M14 17.5h7"/></svg>
+          </div>
+          <h3>Tools are scattered</h3>
+          <p>Predictors, sketchers and 3D viewers live in separate programs, each with its own licence and installation.</p>
+        </article>
+        <article class="card" data-reveal style="--d:180ms">
+          <div class="card__icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="12" rx="2"/><path d="M8 20h8M12 16v4"/></svg>
+          </div>
+          <h3>Compute is expensive</h3>
+          <p>Running ML models or simulations takes hardware and administration that most labs simply don’t have.</p>
+        </article>
+        <article class="card" data-reveal style="--d:270ms">
+          <div class="card__icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24"><path d="M3 7l9-4 9 4-9 4-9-4z"/><path d="M7 9v5c0 1.7 2.2 3 5 3s5-1.3 5-3V9"/></svg>
+          </div>
+          <h3>NMR is hard to learn</h3>
+          <p>Students learn to read spectra from static textbook figures instead of working with real, interactive data.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ───────────────────────── 3. HOW IT WORKS ───────────────────────── -->
+  <section class="section section--tint" id="how">
+    <div class="container">
+      <header class="section__head" data-reveal>
+        <p class="eyebrow">How it works</p>
+        <h2>One workflow, from raw data to a verified structure.</h2>
+      </header>
+
+      <div class="steps">
+        <div class="steps__list">
+          <article class="step" data-step="0">
+            <span class="step__num">01</span>
+            <h3>Upload &amp; clean the spectrum</h3>
+            <p>Drop a JCAMP-DX file, including Bruker variants. Set the spectrometer frequency, tune the baseline, mark solvent peaks and let automatic peak detection do the rest.</p>
+            <figure class="frame step__media"><div class="tour" data-tour='[{"t":0,"x":0.5,"y":0.5,"s":1},{"t":0.8,"x":0.87,"y":0.3,"s":1.9,"d":1.2},{"t":3.0,"x":0.45,"y":0.72,"s":1.55,"d":1.4},{"t":6.9,"x":0.87,"y":0.45,"s":2.0,"d":1.3},{"t":11.0,"x":0.5,"y":0.6,"s":1.35,"d":1.6},{"t":14.3,"x":0.5,"y":0.5,"s":1,"d":2}]'><video src="assets/video/peaks.mp4" poster="assets/video/peaks.jpg" width="1600" height="960" style="--ar:1600/960" muted playsinline preload="none" aria-label="Recording: raising the baseline threshold, then autotuning the peak count" data-zoom></video></div></figure>
+          </article>
+          <article class="step" data-step="1">
+            <span class="step__num">02</span>
+            <h3>AI proposes candidate structures</h3>
+            <p>Our models read the peak list and propose candidate structures. Each one is built from chemical groups you can inspect, so you never get a black-box answer.</p>
+            <figure class="frame step__media"><div class="tour" data-tour='[{"t":0,"x":0.5,"y":0.5,"s":1},{"t":1.1,"x":0.86,"y":0.9,"s":1.9,"d":1.4},{"t":4.0,"x":0.5,"y":0.5,"s":1,"d":1.2},{"t":6.3,"x":0.76,"y":0.06,"s":1.9,"d":1.2},{"t":8.8,"x":0.38,"y":0.45,"s":1.7,"d":1.6},{"t":11.8,"x":0.78,"y":0.5,"s":1.4,"d":1.6},{"t":14,"x":0.5,"y":0.5,"s":1,"d":1.4}]'><video src="assets/video/ai.mp4" poster="assets/video/ai.jpg" width="1600" height="960" style="--ar:1600/960" muted playsinline preload="none" aria-label="Recording: Calculate opens the workbench with a proposed structure" data-zoom></video></div></figure>
+          </article>
+          <article class="step" data-step="2">
+            <span class="step__num">03</span>
+            <h3>Refine it your way</h3>
+            <p>Edit at the level of chemical groups or individual atoms. The two views stay in sync, and a library of 374 named groups labels every piece of the molecule.</p>
+            <figure class="frame step__media"><div class="tour" data-tour='[{"t":0,"x":0.5,"y":0.5,"s":1},{"t":0.8,"x":0.31,"y":0.56,"s":1.55,"d":1.2},{"t":4.8,"x":0.78,"y":0.5,"s":1.45,"d":1.4},{"t":9.4,"x":0.47,"y":0.66,"s":1.5,"d":1.3},{"t":13.5,"x":0.27,"y":0.54,"s":2.2,"d":1.4},{"t":20.4,"x":0.5,"y":0.52,"s":1.1,"d":1.8},{"t":24,"x":0.5,"y":0.5,"s":1,"d":1.6}]'><video src="assets/video/refine.mp4" poster="assets/video/refine.jpg" width="1600" height="960" style="--ar:1600/960" muted playsinline preload="none" aria-label="Recording: refining the structure in the group editor" data-zoom></video></div></figure>
+          </article>
+          <article class="step" data-step="3">
+            <span class="step__num">04</span>
+            <h3>Verify against the experiment</h3>
+            <p>Predict the ¹³C spectrum of your candidate and overlay it on the measured one. Compare candidates side by side and keep the structure that fits.</p>
+            <figure class="frame step__media"><div class="tour" data-tour='[{"x":0.6,"y":0.78,"s":1.55},{"x":0.72,"y":0.8,"s":1.9},{"x":0.5,"y":0.72,"s":1.4}]'><img src="assets/img/analysis.webp" width="1600" height="960" alt="Analysis workbench with experimental spectrum, comparison and candidate structures" loading="lazy" data-zoom></div></figure>
+          </article>
+        </div>
+
+        <div class="steps__stage" aria-hidden="true">
+          <figure class="frame frame--stage" id="stage">
+            <div class="frame__bar"><i></i><i></i><i></i><span id="stage-label">Upload &amp; clean</span></div>
+            <div class="stage__slides">
+              <div class="stage__slide is-active tour" data-tour='[{"t":0,"x":0.5,"y":0.5,"s":1},{"t":0.8,"x":0.87,"y":0.3,"s":1.9,"d":1.2},{"t":3.0,"x":0.45,"y":0.72,"s":1.55,"d":1.4},{"t":6.9,"x":0.87,"y":0.45,"s":2.0,"d":1.3},{"t":11.0,"x":0.5,"y":0.6,"s":1.35,"d":1.6},{"t":14.3,"x":0.5,"y":0.5,"s":1,"d":2}]' data-label="Upload &amp; clean"><video src="assets/video/peaks.mp4" poster="assets/video/peaks.jpg" width="1600" height="960" style="--ar:1600/960" muted playsinline preload="none" aria-hidden="true" data-zoom></video></div>
+              <div class="stage__slide tour" data-tour='[{"t":0,"x":0.5,"y":0.5,"s":1},{"t":1.1,"x":0.86,"y":0.9,"s":1.9,"d":1.4},{"t":4.0,"x":0.5,"y":0.5,"s":1,"d":1.2},{"t":6.3,"x":0.76,"y":0.06,"s":1.9,"d":1.2},{"t":8.8,"x":0.38,"y":0.45,"s":1.7,"d":1.6},{"t":11.8,"x":0.78,"y":0.5,"s":1.4,"d":1.6},{"t":14,"x":0.5,"y":0.5,"s":1,"d":1.4}]' data-label="AI proposals"><video src="assets/video/ai.mp4" poster="assets/video/ai.jpg" width="1600" height="960" style="--ar:1600/960" muted playsinline preload="none" aria-hidden="true" data-zoom></video></div>
+              <div class="stage__slide tour" data-tour='[{"t":0,"x":0.5,"y":0.5,"s":1},{"t":0.8,"x":0.31,"y":0.56,"s":1.55,"d":1.2},{"t":4.8,"x":0.78,"y":0.5,"s":1.45,"d":1.4},{"t":9.4,"x":0.47,"y":0.66,"s":1.5,"d":1.3},{"t":13.5,"x":0.27,"y":0.54,"s":2.2,"d":1.4},{"t":20.4,"x":0.5,"y":0.52,"s":1.1,"d":1.8},{"t":24,"x":0.5,"y":0.5,"s":1,"d":1.6}]' data-label="Refine"><video src="assets/video/refine.mp4" poster="assets/video/refine.jpg" width="1600" height="960" style="--ar:1600/960" muted playsinline preload="none" aria-hidden="true" data-zoom></video></div>
+              <div class="stage__slide tour" data-tour='[{"x":0.6,"y":0.78,"s":1.55},{"x":0.72,"y":0.8,"s":1.9},{"x":0.5,"y":0.72,"s":1.4}]' data-label="Verify"><img src="assets/img/analysis.webp" width="1600" height="960" alt="" loading="lazy" data-zoom></div>
+            </div>
+            <div class="stage__progress"><i></i><i></i><i></i><i></i></div>
+          </figure>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ───────────────────────── 4. WORKSPACE ───────────────────────── -->
+  <section class="section" id="workspace">
+    <div class="container">
+      <header class="section__head" data-reveal>
+        <p class="eyebrow">The workspace</p>
+        <h2>Built around the way chemists think.</h2>
+        <p class="section__lead">Groups, atoms, spectra and 3D in one place. Every edit is reflected everywhere at once.</p>
+      </header>
+
+      <div class="bento">
+        <article class="tile tile--tall" data-reveal>
+          <figure class="frame tile__media tile__media--tall">
+            <div class="tour" data-tour='[{"t":0,"x":0.55,"y":0.5,"s":1},{"t":1.0,"x":0.56,"y":0.44,"s":1.2,"d":1.2},{"t":6.8,"x":0.32,"y":0.46,"s":1,"d":1.2},{"t":10.5,"x":0.25,"y":0.3,"s":1.12,"d":1.2},{"t":13.2,"x":0.55,"y":0.48,"s":1.08,"d":1.6},{"t":16.5,"x":0.55,"y":0.5,"s":1,"d":2}]'><video src="assets/video/editor2d.mp4" poster="assets/video/editor2d.jpg" width="690" height="874" style="--ar:690/874" muted playsinline preload="none" aria-label="Recording: drawing a CH2–OH chain onto the ring and applying groups" data-zoom></video></div>
+          </figure>
+          <div class="tile__body">
+            <h3>Atoms and groups, in sync</h3>
+            <p>Draw or edit atoms and bonds directly, and the molecule is decomposed back into named chemical groups automatically.</p>
+          </div>
+        </article>
+
+        <article class="tile tile--wide" data-reveal style="--d:90ms">
+          <figure class="frame tile__media">
+            <div class="tour" data-tour='[{"t":0,"x":0.5,"y":0.5,"s":1},{"t":1.2,"x":0.62,"y":0.35,"s":1.5,"d":1.3},{"t":4.5,"x":0.85,"y":0.25,"s":1.7,"d":1.4},{"t":7.6,"x":0.4,"y":0.6,"s":1.4,"d":1.3},{"t":11.3,"x":0.7,"y":0.5,"s":1.3,"d":1.3},{"t":13,"x":0.5,"y":0.5,"s":1,"d":1.2}]'><video src="assets/video/library.mp4" poster="assets/video/library.jpg" width="1050" height="816" style="--ar:1050/816" muted playsinline preload="none" aria-label="Recording: browsing and previewing groups in the library" data-zoom></video></div>
+          </figure>
+          <div class="tile__body">
+            <h3>374 named chemical groups</h3>
+            <p>Search by name, alias or SMILES, or browse by category, from methyl to morpholinyl.</p>
+          </div>
+        </article>
+
+        <article class="tile" data-reveal style="--d:180ms">
+          <figure class="frame tile__media">
+            <div class="tour" data-tour='[{"t":0,"x":0.5,"y":0.5,"s":1},{"t":0.9,"x":0.3,"y":0.15,"s":1.8,"d":1.2},{"t":5.6,"x":0.35,"y":0.45,"s":1.35,"d":1.4},{"t":9.5,"x":0.75,"y":0.8,"s":1.5,"d":1.4},{"t":12,"x":0.5,"y":0.5,"s":1,"d":1.6}]'><video src="assets/video/search.mp4" poster="assets/video/search.jpg" width="860" height="620" style="--ar:860/620" muted playsinline preload="none" aria-label="Recording: typing “paracet”, picking paracetamol, and its structure appears" data-zoom></video></div>
+          </figure>
+          <div class="tile__body">
+            <h3>Start from a name</h3>
+            <p>Type “paracet…”, pick paracetamol and it lands on the canvas. You can also paste SMILES or InChI. The lookup runs on our own index, so your queries never leave the platform.</p>
+          </div>
+        </article>
+
+        <article class="tile" data-reveal style="--d:270ms">
+          <figure class="frame tile__media">
+            <div class="tour" data-tour='[{"t":0,"x":0.5,"y":0.48,"s":1.3},{"t":1.5,"x":0.5,"y":0.48,"s":1.7,"d":4},{"t":8,"x":0.5,"y":0.5,"s":1.45,"d":3},{"t":12.5,"x":0.5,"y":0.48,"s":1.3,"d":2}]'><video src="assets/video/mol3d.mp4" poster="assets/video/mol3d.jpg" width="690" height="874" style="--ar:690/874" muted playsinline preload="none" aria-label="Recording: turning the 3D model of naproxen" data-zoom></video></div>
+          </figure>
+          <div class="tile__body">
+            <h3>Interactive 3D</h3>
+            <p>Rotate and inspect every candidate structure in 3D, right next to its spectrum.</p>
+          </div>
+        </article>
+
+        <article class="tile tile--text" data-reveal style="--d:90ms">
+          <div class="tile__body">
+            <h3>Split structures your way</h3>
+            <p>Choose how a molecule is cut into groups, from retrosynthetic rules to the fragments a spectroscopist would pick.</p>
+            <div class="chips">
+              <span class="chip">BRICS</span><span class="chip">Ertl</span><span class="chip">Known fragments</span><span class="chip">MolCut</span>
+            </div>
+          </div>
+        </article>
+
+        <article class="tile tile--text tile--wide" data-reveal style="--d:180ms">
+          <div class="tile__body">
+            <h3>A workbench, not a form</h3>
+            <ul class="ticks">
+              <li>Dockable panels with View, Edit and Advanced layouts</li>
+              <li>Your spectra history, ready to pick up where you left off</li>
+              <li>Your own custom fragments, saved to your account</li>
+              <li>A built-in guided tour for first-time users</li>
+            </ul>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ───────────────────────── 5. COLLABORATION ───────────────────────── -->
+  <section class="section section--tint" id="collaboration">
+    <div class="container split">
+      <div class="split__copy" data-reveal>
+        <p class="eyebrow">Collaboration</p>
+        <h2>Work on the same structure, at the same time.</h2>
+        <p class="section__lead">Share a workspace the way you share a spreadsheet. Everyone sees the same spectrum and the same candidate, and every edit appears live.</p>
+        <ul class="ticks">
+          <li><b>Live presence.</b> See who is in the workspace and where they are working.</li>
+          <li><b>Supervisor and student</b> on one spectrum, instead of screenshots sent by email.</li>
+          <li><b>CRO teams</b> reviewing a structure together, and with their client.</li>
+        </ul>
+      </div>
+      <div class="split__media" data-reveal style="--d:120ms">
+        <figure class="frame collab" id="collab">
+          <div class="frame__bar" aria-hidden="true"><i></i><i></i><i></i><span>Shared workspace</span>
+            <span class="presence"><b style="--c:#a78bfa">A</b><b style="--c:#f472b6">M</b><b style="--c:#38bdf8">K</b></span>
+          </div>
+          <div class="collab__canvas">
+            <img src="assets/img/groups.webp" width="690" height="908" alt="Chemical-group graph shared between several users" loading="lazy">
+            <span class="cursor" style="--c:#a78bfa" data-path="[[0.42,0.3],[0.6,0.36],[0.52,0.46],[0.36,0.4]]"><svg viewBox="0 0 16 16"><path d="M1 1l5.5 13 2-5.5L14 6.5z"/></svg><em>Anna</em></span>
+            <span class="cursor" style="--c:#f472b6" data-path="[[0.78,0.72],[0.74,0.82],[0.86,0.68],[0.72,0.64]]"><svg viewBox="0 0 16 16"><path d="M1 1l5.5 13 2-5.5L14 6.5z"/></svg><em>Marek</em></span>
+            <span class="cursor" style="--c:#38bdf8" data-path="[[0.1,0.3],[0.18,0.36],[0.08,0.4],[0.22,0.55]]"><svg viewBox="0 0 16 16"><path d="M1 1l5.5 13 2-5.5L14 6.5z"/></svg><em>Prof. Kim</em></span>
+          </div>
+        </figure>
+      </div>
+    </div>
+  </section>
+
+  <!-- ───────────────────────── 6. LEARNING ───────────────────────── -->
+  <section class="section" id="learning">
+    <div class="container split split--rev">
+      <div class="split__copy" data-reveal>
+        <p class="eyebrow">Learning mode</p>
+        <h2>Learn NMR by doing, not by memorising.</h2>
+        <p class="section__lead">Guided exercises on real spectra teach you to read shifts, recognise groups and reason your way to a structure, with feedback at every step.</p>
+        <ul class="ticks">
+          <li><b>Students:</b> practise on the same tools researchers use.</li>
+          <li><b>Educators:</b> run hands-on classes without installing anything.</li>
+          <li><b>Anyone curious:</b> learn chemistry and NMR at your own pace.</li>
+        </ul>
+      </div>
+      <div class="split__media" data-reveal style="--d:120ms">
+        <!-- Interactive ¹³C quiz. main.js renders every question from its QUIZ data; the
+             markup below is the first question as a static fallback without JS. -->
+        <div class="lesson" id="lesson">
+          <div class="lesson__head">
+            <span class="chip" id="lesson-topic">Try it · Carbonyl carbons</span>
+            <span class="lesson__step" id="lesson-step">1 / 4</span>
+          </div>
+          <p class="lesson__q" id="lesson-q">Which peak belongs to the <b>C=O</b> carbon?</p>
+          <p class="lesson__compound" id="lesson-compound">Compound: naproxen</p>
+          <svg class="lesson__mol" id="lesson-mol" viewBox="0 0 400 130" role="img" aria-label="Structure of naproxen"></svg>
+          <svg class="lesson__spec" id="lesson-spec" viewBox="0 0 400 150" role="img" aria-label="¹³C spectrum with peaks at 178, 134, 121, 55 and 18 ppm">
+            <line x1="14" y1="120" x2="386" y2="120" class="axis"/>
+          </svg>
+          <div class="lesson__options" id="lesson-options">
+            <button type="button" class="opt">178 ppm</button>
+            <button type="button" class="opt">134 ppm</button>
+            <button type="button" class="opt">121 ppm</button>
+            <button type="button" class="opt">55 ppm</button>
+            <button type="button" class="opt">18 ppm</button>
+          </div>
+          <p class="lesson__feedback" id="lesson-feedback" aria-live="polite">Pick a peak on the spectrum or a value below.</p>
+          <div class="lesson__foot">
+            <span class="lesson__score" id="lesson-score"></span>
+            <button type="button" class="btn btn--ghost btn--sm lesson__next" id="lesson-next" hidden>Next question →</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ───────────────────────── 7. COMPUTE ───────────────────────── -->
+  <section class="section section--tint" id="compute">
+    <div class="container">
+      <header class="section__head" data-reveal>
+        <p class="eyebrow">Compute included</p>
+        <h2>All the heavy lifting runs on our side.</h2>
+        <p class="section__lead">No GPUs, no installation, no software licences. Open a browser, and the AI models, NMR prediction and soon molecular simulations run on MoleculeSolver’s own hardware.</p>
+      </header>
+
+      <div class="flow" data-reveal>
+        <div class="flow__node">
+          <div class="card__icon" aria-hidden="true"><svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="13" rx="2"/><path d="M3 8h18"/></svg></div>
+          <b>Your browser</b>
+          <span>Upload, edit, compare</span>
+        </div>
+        <div class="flow__line" aria-hidden="true"><svg viewBox="0 0 200 20" preserveAspectRatio="none"><path d="M0 10H200"/></svg></div>
+        <div class="flow__node flow__node--main">
+          <div class="card__icon" aria-hidden="true"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="6" rx="1.5"/><rect x="3" y="15" width="18" height="6" rx="1.5"/><path d="M7 6h.01M7 18h.01"/></svg></div>
+          <b>MoleculeSolver infrastructure</b>
+          <div class="chips">
+            <span class="chip">AI structure models</span>
+            <span class="chip">¹³C NMR prediction</span>
+            <span class="chip chip--soon">Simulations · soon</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="cards cards--3">
+        <article class="card card--flat" data-reveal><h3>Nothing to install</h3><p>Everything runs in the browser: no installers, no licence servers, no waiting on IT.</p></article>
+        <article class="card card--flat" data-reveal style="--d:90ms"><h3>Our own hardware</h3><p>Models and simulations run on machines we operate ourselves, not on a patchwork of third-party services.</p></article>
+        <article class="card card--flat" data-reveal style="--d:180ms"><h3>Your laptop stays free</h3><p>Heavy computation happens on our servers, so even a student laptop is all you need.</p></article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ───────────────────────── 8. ROADMAP ───────────────────────── -->
+  <section class="section" id="roadmap">
+    <div class="container">
+      <header class="section__head" data-reveal>
+        <p class="eyebrow">Coming soon</p>
+        <h2>From structure to biology.</h2>
+        <p class="section__lead">Once your structure and its spectrum agree, take it further in the same workspace, on the same compute.</p>
+      </header>
+      <div class="cards cards--3">
+        <article class="card card--soon" data-reveal>
+          <span class="badge">In development</span>
+          <div class="card__icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M3 3.5c1.6 8.5 4.4 15 9 15s7.4-6.5 9-15"/><circle cx="12" cy="14.8" r="2.2"/><path d="M3 21.5h18"/></svg></div>
+          <h3>Force fields</h3>
+          <p>Molecular mechanics and dynamics for your candidate structure, set up in a few clicks.</p>
+        </article>
+        <article class="card card--soon" data-reveal style="--d:90ms">
+          <span class="badge">In development</span>
+          <div class="card__icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M3 8c3-2 6 2 9 0s6-2 9 0M3 16c3-2 6 2 9 0s6-2 9 0"/><circle cx="12" cy="12" r="1.6"/></svg></div>
+          <h3>Membrane interaction</h3>
+          <p>Simulate how your molecule behaves in contact with a complete cell membrane.</p>
+        </article>
+        <article class="card card--soon" data-reveal style="--d:180ms">
+          <span class="badge">In development</span>
+          <div class="card__icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M4 14c0-5 4-9 9-9 2 0 4 1 5 2l-4 4 3 3-3 3c-1 1-3 2-5 2-3 0-5-2-5-5z"/><circle cx="19.5" cy="15.5" r="2"/></svg></div>
+          <h3>Ligand–protein binding</h3>
+          <p>Check how a candidate ligand binds its protein target before you ever reach the bench.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ───────────────────────── 9. PARTNERS ───────────────────────── -->
+  <section class="section section--tight section--tint" id="partners">
+    <div class="container">
+      <p class="eyebrow eyebrow--center" data-reveal>Partners</p>
+      <div class="logos" data-reveal>
+        <img src="assets/logos/pg-logotyp.svg" alt="Gdańsk University of Technology" height="64" loading="lazy">
+        <img src="assets/logos/excento_logo.png" alt="Excento — Gdańsk University of Technology" height="110" class="logo--invert" loading="lazy">
+        <img src="assets/logos/pan_logo.webp" alt="Polish Academy of Sciences" height="64" class="logo--invert" loading="lazy">
+      </div>
+    </div>
+  </section>
+
+  <!-- ───────────────────────── 10. TEAM ───────────────────────── -->
+  <section class="section" id="team">
+    <div class="container">
+      <header class="section__head" data-reveal>
+        <p class="eyebrow">Team</p>
+        <h2>Chemistry, software and machine learning under one roof.</h2>
+      </header>
+      <div class="cards cards--3">
+        <article class="person" data-reveal>
+          <img src="assets/team/rafal.webp" width="480" height="480" alt="Rafał Stojałowski" loading="lazy">
+          <h3>Rafał Stojałowski</h3>
+          <p class="person__role">CEO &amp; Co-Founder</p>
+          <p>With a master’s in biotechnology and ongoing computer science studies, Rafał bridges biotech and IT and sets the team’s direction.</p>
+        </article>
+        <article class="person" data-reveal style="--d:90ms">
+          <img src="assets/team/janek.webp" width="480" height="480" alt="Jan Grubba" loading="lazy">
+          <h3>Jan Grubba</h3>
+          <p class="person__role">CTO &amp; Co-Founder</p>
+          <p>With a master’s in machine learning, Jan shapes the software architecture and the technical foundation of the platform.</p>
+        </article>
+        <article class="person" data-reveal style="--d:180ms">
+          <img src="assets/team/albert.webp" width="480" height="480" alt="Albert Masiak" loading="lazy">
+          <h3>Albert Masiak</h3>
+          <p class="person__role">COO &amp; Co-Founder</p>
+          <p>With a master’s in AI, Albert develops our ML models and keeps the team’s work organised and moving.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+</main>
+
+<!-- ───────────────────────── FOOTER / CONTACT ───────────────────────── -->
+<footer class="footer" id="contact">
+  <div class="container">
+    <div class="footer__cta" data-reveal>
+      <h2>See it on your own spectra.</h2>
+      <p>We are supporting university groups and CROs. Tell us a little about your work and we’ll get back to you.</p>
+      <a class="btn btn--primary" data-request-access href="#contact">Request access</a>
+    </div>
+    <div class="footer__bottom">
+      <img src="assets/logo.svg" alt="MoleculeSolver" width="130" height="26">
+      <a class="footer__mail" data-contact-email href="#contact"></a>
+      <span>© <span id="year">2026</span> MoleculeSolver</span>
+    </div>
+  </div>
+</footer>
+
+<div class="lightbox" id="lightbox" aria-hidden="true"></div>
+
+<script src="main.js" defer></script>
+</body>
+</html>
