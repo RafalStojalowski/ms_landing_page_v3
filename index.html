@@ -4,10 +4,10 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>MoleculeSolver — From NMR spectrum to molecular structure</title>
-  <meta name="description" content="Upload an NMR spectrum, let AI models propose candidate structures, refine and verify them in an interactive workspace — together with your team. All computing runs on our side.">
+  <meta name="description" content="Upload an NMR spectrum, let machine learning algorithms propose candidate structures, refine and verify them in an interactive workspace — together with your team. All computing runs on our side.">
   <meta name="theme-color" content="#07050c">
   <meta property="og:title" content="MoleculeSolver — From NMR spectrum to molecular structure">
-  <meta property="og:description" content="AI structure proposals, an interactive NMR workspace, live collaboration and a learning mode. All computing runs on our side.">
+  <meta property="og:description" content="Structure proposals from machine learning algorithms, an interactive NMR workspace, live collaboration and a learning mode. All computing runs on our side.">
   <meta property="og:image" content="assets/img/hero.webp">
   <link rel="icon" href="assets/logo.svg" type="image/svg+xml">
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -49,7 +49,7 @@
         From NMR spectrum<br>to <span class="grad-text">molecular structure.</span>
       </h1>
       <p class="hero__lead" data-reveal style="--d:160ms">
-        Upload a spectrum and let our AI models propose candidate structures. Refine them in an
+        Upload a spectrum and let our bespoke machine learning algorithms propose candidate structures. Refine them in an
         interactive workspace, check the predicted ¹³C spectrum against your data, and do it together
         with your team. All the computing runs on our side.
       </p>
@@ -60,15 +60,8 @@
     </div>
 
     <div class="container hero__stage" data-reveal style="--d:320ms">
-      <div class="hero__shot" id="hero-shot">
-        <figure class="frame frame--hero">
-          <div class="frame__bar" aria-hidden="true"><i></i><i></i><i></i><span>MoleculeSolver · workspace</span></div>
-          <div class="tour" data-tour='[{"t":0,"x":0.5,"y":0.5,"s":1},{"t":0.8,"x":0.31,"y":0.56,"s":1.55,"d":1.2},{"t":4.8,"x":0.78,"y":0.5,"s":1.45,"d":1.4},{"t":9.4,"x":0.47,"y":0.66,"s":1.5,"d":1.3},{"t":13.5,"x":0.27,"y":0.54,"s":2.2,"d":1.4},{"t":20.4,"x":0.5,"y":0.52,"s":1.1,"d":1.8},{"t":24,"x":0.5,"y":0.5,"s":1,"d":1.6}]'><video src="assets/video/refine.mp4" poster="assets/video/refine.jpg" width="1600" height="960" style="--ar:1600/960" muted playsinline preload="auto" aria-label="Recording: dragging a group tile, turning the 3D model and bonding a new OH group" data-zoom></video></div>
-        </figure>
-        <span class="chip chip--float chip--a"><i class="dot"></i>AI structure proposals</span>
-        <span class="chip chip--float chip--b"><i class="dot dot--m"></i>¹³C NMR prediction</span>
-        <span class="chip chip--float chip--c"><i class="dot dot--c"></i>Live collaboration</span>
-      </div>
+      <canvas class="hero__anim" id="hero-anim" role="img"
+        aria-label="Animation: an NMR spectrum is baseline-corrected and its peaks picked; machine learning algorithms turn the peaks into chemical groups that assemble into a candidate structure; the user moves a methyl group, turns the molecule in 3D, and the predicted carbon-13 spectrum matches the experimental one — caffeine."></canvas>
     </div>
   </section>
 
@@ -130,7 +123,7 @@
           </article>
           <article class="step" data-step="1">
             <span class="step__num">02</span>
-            <h3>AI proposes candidate structures</h3>
+            <h3>Machine learning algorithms propose candidate structures</h3>
             <p>Our models read the peak list and propose candidate structures. Each one is built from chemical groups you can inspect, so you never get a black-box answer.</p>
             <figure class="frame step__media"><div class="tour" data-tour='[{"t":0,"x":0.5,"y":0.5,"s":1},{"t":1.1,"x":0.86,"y":0.9,"s":1.9,"d":1.4},{"t":4.0,"x":0.5,"y":0.5,"s":1,"d":1.2},{"t":6.3,"x":0.76,"y":0.06,"s":1.9,"d":1.2},{"t":8.8,"x":0.38,"y":0.45,"s":1.7,"d":1.6},{"t":11.8,"x":0.78,"y":0.5,"s":1.4,"d":1.6},{"t":14,"x":0.5,"y":0.5,"s":1,"d":1.4}]'><video src="assets/video/ai.mp4" poster="assets/video/ai.jpg" width="1600" height="960" style="--ar:1600/960" muted playsinline preload="none" aria-label="Recording: Calculate opens the workbench with a proposed structure" data-zoom></video></div></figure>
           </article>
@@ -153,7 +146,7 @@
             <div class="frame__bar"><i></i><i></i><i></i><span id="stage-label">Upload &amp; clean</span></div>
             <div class="stage__slides">
               <div class="stage__slide is-active tour" data-tour='[{"t":0,"x":0.5,"y":0.5,"s":1},{"t":0.8,"x":0.87,"y":0.3,"s":1.9,"d":1.2},{"t":3.0,"x":0.45,"y":0.72,"s":1.55,"d":1.4},{"t":6.9,"x":0.87,"y":0.45,"s":2.0,"d":1.3},{"t":11.0,"x":0.5,"y":0.6,"s":1.35,"d":1.6},{"t":14.3,"x":0.5,"y":0.5,"s":1,"d":2}]' data-label="Upload &amp; clean"><video src="assets/video/peaks.mp4" poster="assets/video/peaks.jpg" width="1600" height="960" style="--ar:1600/960" muted playsinline preload="none" aria-hidden="true" data-zoom></video></div>
-              <div class="stage__slide tour" data-tour='[{"t":0,"x":0.5,"y":0.5,"s":1},{"t":1.1,"x":0.86,"y":0.9,"s":1.9,"d":1.4},{"t":4.0,"x":0.5,"y":0.5,"s":1,"d":1.2},{"t":6.3,"x":0.76,"y":0.06,"s":1.9,"d":1.2},{"t":8.8,"x":0.38,"y":0.45,"s":1.7,"d":1.6},{"t":11.8,"x":0.78,"y":0.5,"s":1.4,"d":1.6},{"t":14,"x":0.5,"y":0.5,"s":1,"d":1.4}]' data-label="AI proposals"><video src="assets/video/ai.mp4" poster="assets/video/ai.jpg" width="1600" height="960" style="--ar:1600/960" muted playsinline preload="none" aria-hidden="true" data-zoom></video></div>
+              <div class="stage__slide tour" data-tour='[{"t":0,"x":0.5,"y":0.5,"s":1},{"t":1.1,"x":0.86,"y":0.9,"s":1.9,"d":1.4},{"t":4.0,"x":0.5,"y":0.5,"s":1,"d":1.2},{"t":6.3,"x":0.76,"y":0.06,"s":1.9,"d":1.2},{"t":8.8,"x":0.38,"y":0.45,"s":1.7,"d":1.6},{"t":11.8,"x":0.78,"y":0.5,"s":1.4,"d":1.6},{"t":14,"x":0.5,"y":0.5,"s":1,"d":1.4}]' data-label="ML proposals"><video src="assets/video/ai.mp4" poster="assets/video/ai.jpg" width="1600" height="960" style="--ar:1600/960" muted playsinline preload="none" aria-hidden="true" data-zoom></video></div>
               <div class="stage__slide tour" data-tour='[{"t":0,"x":0.5,"y":0.5,"s":1},{"t":0.8,"x":0.31,"y":0.56,"s":1.55,"d":1.2},{"t":4.8,"x":0.78,"y":0.5,"s":1.45,"d":1.4},{"t":9.4,"x":0.47,"y":0.66,"s":1.5,"d":1.3},{"t":13.5,"x":0.27,"y":0.54,"s":2.2,"d":1.4},{"t":20.4,"x":0.5,"y":0.52,"s":1.1,"d":1.8},{"t":24,"x":0.5,"y":0.5,"s":1,"d":1.6}]' data-label="Refine"><video src="assets/video/refine.mp4" poster="assets/video/refine.jpg" width="1600" height="960" style="--ar:1600/960" muted playsinline preload="none" aria-hidden="true" data-zoom></video></div>
               <div class="stage__slide tour" data-tour='[{"x":0.6,"y":0.78,"s":1.55},{"x":0.72,"y":0.8,"s":1.9},{"x":0.5,"y":0.72,"s":1.4}]' data-label="Verify"><img src="assets/img/analysis.webp" width="1600" height="960" alt="" loading="lazy" data-zoom></div>
             </div>
@@ -318,7 +311,7 @@
       <header class="section__head" data-reveal>
         <p class="eyebrow">Compute included</p>
         <h2>All the heavy lifting runs on our side.</h2>
-        <p class="section__lead">No GPUs, no installation, no software licences. Open a browser, and the AI models, NMR prediction and soon molecular simulations run on MoleculeSolver’s own hardware.</p>
+        <p class="section__lead">No GPUs, no installation, no software licences. Open a browser, and the machine learning algorithms, NMR prediction and soon molecular simulations run on MoleculeSolver’s own hardware.</p>
       </header>
 
       <div class="flow" data-reveal>
@@ -332,7 +325,7 @@
           <div class="card__icon" aria-hidden="true"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="6" rx="1.5"/><rect x="3" y="15" width="18" height="6" rx="1.5"/><path d="M7 6h.01M7 18h.01"/></svg></div>
           <b>MoleculeSolver infrastructure</b>
           <div class="chips">
-            <span class="chip">AI structure models</span>
+            <span class="chip">Machine learning algorithms</span>
             <span class="chip">¹³C NMR prediction</span>
             <span class="chip chip--soon">Simulations · soon</span>
           </div>
@@ -439,6 +432,7 @@
 
 <div class="lightbox" id="lightbox" aria-hidden="true"></div>
 
+<script src="hero-anim.js" defer></script>
 <script src="main.js" defer></script>
 </body>
 </html>

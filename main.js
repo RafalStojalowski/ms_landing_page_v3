@@ -224,26 +224,6 @@
     );
   });
 
-  // ── Hero: the screenshot tilts back and straightens as you scroll ──
-  const heroShot = document.getElementById('hero-shot');
-  if (heroShot && !reduceMotion) {
-    let cur = 0;
-    let target = 0;
-    let raf = 0;
-    const render = () => {
-      cur += (target - cur) * 0.085; // critically-damped-ish follow: soft, no overshoot
-      heroShot.style.setProperty('--tilt', `${(14 * (1 - cur)).toFixed(3)}deg`);
-      heroShot.style.setProperty('--hs', (0.94 + 0.06 * cur).toFixed(4));
-      raf = Math.abs(target - cur) > 0.0005 ? requestAnimationFrame(render) : 0;
-    };
-    const onScroll = () => {
-      target = clamp(window.scrollY / (window.innerHeight * 0.55), 0, 1);
-      if (!raf) raf = requestAnimationFrame(render);
-    };
-    onScroll();
-    window.addEventListener('scroll', onScroll, { passive: true });
-  }
-
   // ── How it works: sticky stage follows the step in the middle of the viewport ──
   const steps = [...document.querySelectorAll('.step')];
   const slides = [...document.querySelectorAll('.stage__slide')];
