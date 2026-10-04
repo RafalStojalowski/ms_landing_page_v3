@@ -554,6 +554,7 @@ p { margin: 0; }
   .tile--wide { grid-column: auto; }
   .tile--text.tile--wide .ticks { grid-template-columns: 1fr; }
   .nav__cta { display: none; }
+  .nav__toggle { margin-left: auto; }
   .lesson { padding: 22px; }
   .lesson__options { grid-template-columns: repeat(3, 1fr); }
   .logos { gap: 40px; }
