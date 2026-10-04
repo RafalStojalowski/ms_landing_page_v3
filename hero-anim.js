@@ -1121,11 +1121,28 @@
     new ResizeObserver(resize).observe(canvas.parentElement);
     resize();
     if (STILL !== null) return;
+    // On phones the canvas sits below the fold, so hold the first frame until its
+    // top edge is 40% up from the bottom of the screen; after that, pause only off-screen.
+    let armed = !window.matchMedia('(max-width: 640px)').matches;
+    if (!armed) {
+      visible = false;
+      const armIO = new IntersectionObserver(
+        ([e]) => {
+          if (!e.isIntersecting) return;
+          armIO.disconnect();
+          armed = visible = true;
+          play();
+        },
+        { rootMargin: '0px 0px -40% 0px' },
+      );
+      armIO.observe(canvas);
+    }
     new IntersectionObserver(([e]) => {
+      if (!armed) return;
       visible = e.isIntersecting;
       if (visible) play();
     }).observe(canvas);
-    play();
+    if (armed) play();
   };
 
   // Wait for the webfonts so the first frames don't flash a fallback face.
